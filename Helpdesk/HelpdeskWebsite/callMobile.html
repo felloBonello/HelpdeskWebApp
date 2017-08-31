@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="Content/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <link href="validation.css" rel="stylesheet" />
+    <link href="MobileStyle.css" rel="stylesheet" />
+    <title>Helpdesk Mobile</title>
+</head>
+<body>
+    <div data-role="page"  class="panel-purple" id="mobilepage">
+        <div data-role="header" data-position="fixed">
+            <div width="100%" style="text-align: center;">
+                <img src="Icon.png" height="70" width="80" />
+            </div>
+            <h6 class="text-center">Helpdesk Mobile</h6>
+        </div>
+        <div data-role="main" class="ui-content ui-corner-all">
+            <div width="100%" style="text-align: center;">
+                <h4 class="text-center">Calls</h4>
+            </div>
+            <ul id="main" data-role="listview" data-inset="true" style="border:solid;border-color:#6534ff;"
+                class="ui-listview ui-listview-inset ui-corner-all ui-shadow ui-body"></ul>   
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div style="width:80%;text-align:center;left:10%;position:relative;">
+                <h4 class="ui-bar ui-bar-a ui-corner-all"><span id="LabelStatus"></span></h4>
+                <break />
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="employeeMobile.html" data-ajax="false">Employees</a></li>
+                        <li><a href="callMobile.html" data-ajax="false">Calls</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-role="page" id="callmobilemodal" style="background-color:#dbc3d0;">
+        <div data-role="header" style="padding:10%;background-color:#300032;color:white;font-weight:normal;">
+            <a href="#mobilepage" id="empx" data-transition="flip" class="ui-btn-right"
+               style="border:none;padding:0;background-color:darkgray;color:white;font-weight:normal;font-size:x-large;">&times;</a>
+            <p style="text-align:center">View Call Information</p>
+        </div>
+        <div data-role="main" class="ui-content">
+            <form id="CallModalForm" name="CallModalForm" method="post" action="">
+                <div class="ui-grid-a">
+                    <div class="ui-block-a" style="padding-top:5%;width:35%">Employee:</div>
+                    <div class="ui-block-b" style="left:10px;">
+                        <select id="ddlEmployee" name="ddlEmployee" class="ddl" data-mini="true"></select>
+                    </div>
+                    <div class="ui-block-a" style="padding-top:5%;width:35%">Problem:</div>
+                    <div class="ui-block-b" style="left:10px;">
+                        <select id="ddlProblem" name="ddlProblem" class="ddl" data-mini="true"></select>
+                    </div>
+                    <div class="ui-block-a" style="padding-top:5%;width:35%">Technician:</div>
+                    <div class="ui-block-b" style="left:10px;">
+                        <select id="ddlTechnician" name="ddlTechnician" class="ddl" data-mini="true"></select>
+                    </div>
+                    <div class="ui-block-a" style="padding-top:5%;width:35%">Date Opened:</div>
+                    <div class="ui-block-b" style="padding-top:5%;">
+                        <span id="lblDateOpened" class="form-control"></span>
+                    </div>
+                    <div class="ui-block-a" style="padding-top:5%;width:35%">Date Closed:</div>
+                    <div class="ui-block-b" style="padding-top:5%;">
+                        <span id="lblDateClosed" class="form-control"></span>
+                    </div>
+                    <div class="ui-block-a" style="padding-top:5%;width:35%">Close Call:</div>
+                    <div class="ui-block-b" style="padding-top:5%;">
+                        <input style="left: -2%;" type="checkbox" id="CheckBoxClosed" name="CheckBoxClosed" data-mini="true" />
+                    </div>
+                    <div class="ui-block-a" style="padding-top:5%;width:35%">Notes:</div>
+                    <div class="ui-block-b" style="left:10px;">
+                        <textarea rows="4" cols="50" id="TextareaNotes" name="TextareaNotes" class="form-control"></textarea>
+                    </div>
+                    <input type="hidden" id="HiddenId" />
+                    <input type="hidden" id="HiddenImg" />
+                    <input type="hidden" id="HiddenEntity" />
+                </div>
+            </form>
+        </div>
+        <div data-role="footer" data-position="fixed" style="background-color:#300032; color:white;">
+            <input type="submit" id="ButtonAction" class="btn panel-black" value="Add"/>
+            <input type="submit" id="ButtonDelete" class="btn panel-black" value="Delete" />
+            <span id="lblstatus" class="label label-default" style="font-size:14px"></span>
+        </div>
+    </div>
+    <script src="Scripts/jquery-2.1.4.min.js"></script>
+    <script src="scripts/jquery.validate.min.js"></script>
+    <script src="Scripts/jquery.mobile-1.4.5.min.js"></script>
+    <script src="Scripts/callMobile.js"></script>
+</body>
+</html>

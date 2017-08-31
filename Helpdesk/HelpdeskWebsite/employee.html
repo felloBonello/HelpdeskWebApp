@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link href="content/bootstrap.css" rel="stylesheet" />
+        <link href="Helpdesk.css" rel="stylesheet" />
+        <link href="validation.css" rel="stylesheet" />
+        <title>Helpdesk - Employees</title>
+    </head>
+    <body>
+        <div class="row" style="padding-top:5%;">
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-exl-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Helpdesk Case #2</a>
+                </div>
+                <div class="collapse navbar-collapse navbar-ex1-collapse row panel-purple">
+                    <ul class="nav navbar-nav panel-purple" id="menu">
+                        <li><a href="/home.html">Home</a></li>
+                        <li class="active"><a href="/employee.html">Employee</a></li>
+                        <li><a href="/department.html">Department</a></li>
+                        <li><a href="/problem.html">Problem</a></li>
+                        <li><a href="/call.html">Call</a></li>
+                        <li><a href="/util.html">Util</a></li>
+                    </ul>
+                    <ul class="nav pull-right" style="padding-right:20px;padding-top:10px;color:white;font-weight:bolder">
+                        <li>v2.0</li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        
+        <div style="width: 100%;">
+            <div style="width: 100%; text-align:center;"><img src="Icon.png"><break/></div>
+            <div class="panel-group col-sm-4 col-xs-8 panel-purple" style="width:40%; margin: 0 30%;z-index: 100; border-style:solid; border-color:#300032; border-width:10px; padding: 0 0 0 0; border-radius: 16px;">
+                <div class="panel-purple" style="padding:0 0 0 0;">
+                    <div class="panel-heading xsmall row" style="text-align: center;">
+                        <div class="col-xs-4">Title</div>
+                        <div class="col-xs-4">First Name</div>
+                        <div class="col-xs-4">Surname</div>
+                    </div>
+                </div>
+                <div class="panel   panel-purple">
+                    <div class="panel" style="height: 170px; overflow-y: auto; overflow-x: hidden; border: none; background-color:#dbc3d0;">
+                        <div id="main"></div>
+                    </div>
+                </div>
+                <div class="col-xs-12 text-center panel-purple">
+                    <h4>
+                        <span id="LabelStatus" class="label label-default">Loading...</span>
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+        <form id="EmployeeModalForm" name="EmployeeModalForm" method="post" action="">
+            <div class="modal fade text-center col-xs-12 text-center" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content  modal-win">
+                        <div class="modal-header text-center">
+                            <button id="X" type="button" class="close" data-dismiss="modal">X</button>
+                            <h1 style="font-weight:bold; color:#300032;">Employee Information</h1>
+                        </div>
+                        <div class="modal-body">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="text-right col-xs-4">Title:</div>
+                                    <div class="text-left col-xs-8">
+                                        <input type="text" placeholder="enter title" id="TextboxTitle"  name="TextboxTitle" class="form-control" />
+                                    </div>
+                                    <div class="text-right col-xs-4">First:</div>
+                                    <div class="text-left col-xs-8">
+                                        <input type="text" placeholder="enter first name" id="TextboxFirstname"  name="TextboxFirstname" class="form-control"/>
+                                    </div>
+                                    <div class="text-right col-xs-4">Surname:</div>
+                                    <div class="text-left col-xs-8">
+                                        <input type="text" placeholder="enter last name" id="TextboxLastname"  name="TextboxLastname" class="form-control" />
+                                    </div>
+                                    <div class="text-right col-xs-4">Phone#:</div>
+                                    <div class="text-left col-xs-8">
+                                        <input type="text" placeholder="enter phone" id="TextboxPhone" name="TextboxPhone" class="form-control" />
+                                    </div>
+                                    <div class="text-right col-xs-4">Email:</div>
+                                    <div class="text-left col-xs-8">
+                                        <input type="text" placeholder="enter email" id="TextboxEmail"  name="TextboxEmail" class="form-control" />
+                                    </div>
+                                    <div class="text-right col-xs-4">Dept:</div>
+                                    <div class="text-left col-xs-8">
+                                        <select id="ddlDepts" value="enter dept" name="ddlDepts" class="ddl"></select>
+                                    </div>   
+                                    <div class="text-right col-xs-4">Is Tech?:</div>
+                                    <div class="text-left col-xs-8">
+                                        <input type="checkbox" id="CheckBoxIsTech" name="CheckBoxIsTech"/>
+                                    </div>                
+                                    <div class="text-right col-xs-4">Staff Pic:</div>
+                                    <div class="text-left col-xs-8">
+                                        <div id="ImageHolder" class="col-xs-3"></div>
+                                    </div>
+                                    <input type="hidden" id="HiddenStaffPicture" />
+                                    <input type="hidden" id="HiddenId" />
+                                    <input type="hidden" id="HiddenEntity" />    
+                                </div>
+                            </div>
+                            <span id="lblstatus" class="label label-default"></span>
+                        </div>                     
+                        <div class="modal-footer top10pad">          
+                            <div class="col-xs-6">
+                                <input class="btn panel-purple" id="fileUpload" type="file" />
+                            </div>
+                            <div class="col-xs-6">
+                                <input type="submit" id="ButtonAction" class="btn menu-button" />
+                                <input type="submit" id="ButtonDelete" class="btn menu-button" value="Delete" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <script src="scripts/jquery-2.1.4.min.js"></script>
+        <script src="scripts/jquery.validate.min.js"></script>
+        <script src="scripts/bootstrap.min.js"></script>
+        <script src="scripts/employee.js"></script>
+    </body>
+</html>

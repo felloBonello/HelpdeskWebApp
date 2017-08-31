@@ -1,0 +1,19 @@
+﻿body {
+}
+
+div.error {
+    width: 100%;
+}
+
+.panel-purple{
+    background-color: #300032;
+    color: white;
+}
+
+.menu-button:hover {
+   color: #990098;
+}
+.menu-button{
+    background-color: #300032;
+    color: white;
+}

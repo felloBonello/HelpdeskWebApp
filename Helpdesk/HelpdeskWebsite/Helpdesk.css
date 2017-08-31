@@ -1,0 +1,50 @@
+﻿html, body{
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: black;
+}
+
+.rowBlue {
+    background-color: #03a9f4;
+    color: black;
+    font-weight: normal;
+}
+
+.rowLightBlue {
+    background-color: #40c4ff;
+    color: black;
+    font-weight: normal;
+}
+
+.rowBlue:hover, .rowLightBlue:hover {
+    background-color: #6534ff;
+    color: #fff;
+}
+
+
+.panel-black{
+    background-color: black;
+    color: white;
+}
+
+.modal-win{
+    background-color:#dbc3d0;
+}
+
+.panel-purple{
+    background-color: #300032;
+    color: white;
+}
+
+.menu-button:hover {
+   color: #990098;
+}
+.menu-button{
+    background-color: #300032;
+    color: white;
+}
+
+.ddl{
+    width: 270px;
+}
